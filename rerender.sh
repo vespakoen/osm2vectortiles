@@ -6,7 +6,6 @@ set -e
 
 echo "> import-external"
 docker-compose -f docker-compose.simplify.yml up import-external # &> /dev/null
-
 echo "> import-osm"
 start_import_osm=$(date +%s.%N)
 docker-compose -f docker-compose.simplify.yml up --build import-osm # &> /dev/null
