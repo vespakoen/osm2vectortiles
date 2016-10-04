@@ -14,14 +14,50 @@
 
 use_single_id_space: true
 generalized_tables:
-  landuse_polygon_gen0:
-    source: landuse_polygon_gen1
-    sql_filter: area>500000.000000
-    tolerance: 200.0
-  landuse_polygon_gen1:
+  landuse_overlay_z13toz14:
     source: landuse_polygon
-    sql_filter: area>50000.000000
-    tolerance: 50.0
+  landuse_overlay_z11toz12:
+    source: landuse_overlay_z13toz14
+    tolerance: 30
+  landuse_overlay_z10:
+    source: landuse_overlay_z11toz12
+    tolerance: 76
+  landuse_overlay_z9:
+    source: landuse_overlay_z10
+    tolerance: 152
+  landuse_overlay_z8:
+    source: landuse_overlay_z9
+    tolerance: 305
+  landuse_overlay_z7:
+    source: landuse_overlay_z8
+    tolerance: 611
+  landuse_overlay_z6:
+    source: landuse_overlay_z7
+    tolerance: 1222
+  landuse_overlay_z5:
+    source: landuse_overlay_z6
+    tolerance: 2444
+  landuse_z13toz14:
+    source: landuse_polygon
+    sql_filter: area>500000.000000
+  landuse_z12:
+    source: landuse_z13toz14
+    tolerance: 19
+  landuse_z11:
+    source: landuse_z12
+    tolerance: 38
+  landuse_z10:
+    source: landuse_z11
+    tolerance: 77
+  landuse_z9:
+    source: landuse_z10
+    tolerance: 200
+  landuse_z7toz8:
+    source: landuse_z9
+    tolerance: 500
+  landuse_z5toz6: 
+    source: landuse_z7toz8
+    tolerance: 2444
   water_polygon_gen0:
     source: water_polygon
     sql_filter: area>40000.000000
@@ -30,6 +66,27 @@ generalized_tables:
     source: building_polygon
     sql_filter: ST_Area(geometry)>1700.000000
     tolerance: 0.0
+  road_geometry_z13:
+    source: road_geometry
+    tolerance: 9
+  road_geometry_z12:
+    source: road_geometry_z13
+    tolerance: 19
+  road_geometry_z11:
+    source: road_geometry_z12
+    tolerance: 38
+  road_geometry_z10:
+    source: road_geometry_z11
+    tolerance: 77
+  road_geometry_z8toz9:
+    source: road_geometry_z10
+    tolerance: 229
+  road_geometry_z6toz7:
+    source: road_geometry_z8toz9
+    tolerance: 916
+  road_geometry_z5:
+    source: road_geometry_z6toz7
+    tolerance: 2444
 tables:
   admin_linestring:
     fields:

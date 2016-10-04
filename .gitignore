@@ -12,3 +12,4 @@ export/
 
 # Temp edit files
 *.swp
+env.sh
