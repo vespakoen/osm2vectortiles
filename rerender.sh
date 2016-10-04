@@ -2,15 +2,15 @@
 
 set -e
 
-sudo rm export/tiles.mbtiles* &> /dev/null || true
+# sudo rm export/tiles.mbtiles* &> /dev/null || true
 
 echo "> import-osm"
 start_import_osm=$(date +%s.%N)
-docker-compose up -f docker-compose.dev.yml --build import-osm # &> /dev/null
+docker-compose -f docker-compose.simplify.yml up --build import-osm # &> /dev/null
 end_import_osm=$(date +%s.%N)
 echo "> import-sql"
 start_import_sql=$(date +%s.%N)
-docker-compose up -f docker-compose.dev.yml --build import-sql # &> /dev/null
+docker-compose -f docker-compose.simplify.yml up --build import-sql # &> /dev/null
 end_import_sql=$(date +%s.%N)
 echo "> export"
 start_export=$(date +%s.%N)
