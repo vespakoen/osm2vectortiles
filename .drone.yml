@@ -4,4 +4,5 @@ bench-tiles:
     - /var/run/docker.sock:/var/run/docker.sock
   commands:
     - cd /drone/src/github.com/vespakoen/osm2vectortiles
+    - echo "starting bench"
     - ./rerender.sh
