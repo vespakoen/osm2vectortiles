@@ -113,7 +113,7 @@ export:
   command: ./export-local.sh
   volumes:
    - ./export:/data/export
-   - ./osm2vectortiles.tm2source:/data/tm2source
+   - ./osm2vectortiles.tm2source:/tmp/project
   links:
    - postgis:db
   environment:
