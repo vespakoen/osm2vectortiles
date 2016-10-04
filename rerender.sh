@@ -7,7 +7,7 @@ set -e
 echo "> import-external"
 docker-compose -f docker-compose.simplify.yml up import-external # &> /dev/null
 
-wget -O ./import/zurich.osm.pbf http://download.geofabrik.de/europe/switzerland-latest.osm.pbf 
+curl http://download.geofabrik.de/europe/switzerland-latest.osm.pbf -o ./import/zurich.osm.pbf
 
 echo "> import-osm"
 start_import_osm=$(date +%s.%N)
