@@ -1,6 +1,6 @@
 CREATE OR REPLACE VIEW building_z13 AS
     SELECT id AS osm_id, underground, geometry
-    FROM osm_building_polygon_gen0;
+    FROM osm_building_polygon;
 
 CREATE OR REPLACE VIEW building_z14 AS
     SELECT id AS osm_id, underground, geometry

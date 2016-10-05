@@ -74,6 +74,26 @@ CREATE OR REPLACE FUNCTION is_polygon(geom geometry) RETURNS bool AS $$
   SELECT ST_GeometryType(geom) IN ('ST_Polygon', 'ST_MultiPolygon');
 $$ LANGUAGE SQL IMMUTABLE;
 
+CREATE OR REPLACE FUNCTION zoom_to_tolerance(zoom integer) RETURNS float AS $$
+  SELECT CASE
+    WHEN (zoom = 0) THEN 78206::float
+    WHEN (zoom = 1) THEN 39103::float
+    WHEN (zoom = 2) THEN 19551::float
+    WHEN (zoom = 3) THEN 9776::float
+    WHEN (zoom = 4) THEN 4888::float
+    WHEN (zoom = 5) THEN 2444::float
+    WHEN (zoom = 6) THEN 1222::float
+    WHEN (zoom = 7) THEN 611::float
+    WHEN (zoom = 8) THEN 305::float
+    WHEN (zoom = 9) THEN 153::float
+    WHEN (zoom = 10) THEN 76::float
+    WHEN (zoom = 11) THEN 38::float
+    WHEN (zoom = 12) THEN 19::float
+    WHEN (zoom = 13) THEN 10::float
+    WHEN (zoom = 14) THEN 0::float
+    ELSE 0::float
+  END;
+$$ LANGUAGE SQL IMMUTABLE;
 
 /*
 -- example call for osm_ids2mbid
